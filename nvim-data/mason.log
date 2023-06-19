@@ -1,0 +1,64 @@
+[INFO  05-Apr-23 12:34:48 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=typescript-language-server) {}
+[INFO  05-Apr-23 12:34:48 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=gopls) {}
+[INFO  05-Apr-23 12:34:48 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=eslint-lsp) {}
+[INFO  05-Apr-23 12:34:48 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=rust-analyzer) {}
+[ERROR 05-Apr-23 12:34:51 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=rust-analyzer) error="Installation was aborted."
+[ERROR 05-Apr-23 12:34:52 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=eslint-lsp) error="Installation was aborted."
+[ERROR 05-Apr-23 12:34:52 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=typescript-language-server) error="Installation was aborted."
+[ERROR 05-Apr-23 12:34:52 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=gopls) error="Installation was aborted."
+[INFO  05-Apr-23 12:35:41 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=typescript-language-server) {}
+[INFO  05-Apr-23 12:35:42 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=gopls) {}
+[INFO  05-Apr-23 12:35:42 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=eslint-lsp) {}
+[INFO  05-Apr-23 12:35:42 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=rust-analyzer) {}
+[INFO  05-Apr-23 12:35:51 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:193: Installation succeeded for Package(name=rust-analyzer)
+[ERROR 05-Apr-23 12:35:59 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=typescript-language-server) error="Installation was aborted."
+[ERROR 05-Apr-23 12:35:59 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=eslint-lsp) error="Installation was aborted."
+[ERROR 05-Apr-23 12:36:00 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=gopls) error="Installation was aborted."
+[INFO  05-Apr-23 12:36:05 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=typescript-language-server) {}
+[INFO  05-Apr-23 12:36:05 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=gopls) {}
+[INFO  05-Apr-23 12:36:05 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=eslint-lsp) {}
+[ERROR 05-Apr-23 12:36:10 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=eslint-lsp) error="Installation was aborted."
+[ERROR 05-Apr-23 12:36:10 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=gopls) error="Installation was aborted."
+[ERROR 05-Apr-23 12:36:10 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=typescript-language-server) error="Installation was aborted."
+[INFO  05-Apr-23 12:36:41 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=typescript-language-server) {}
+[INFO  05-Apr-23 12:36:41 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=gopls) {}
+[INFO  05-Apr-23 12:36:41 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=eslint-lsp) {}
+[ERROR 05-Apr-23 12:36:47 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=typescript-language-server) error="Installation was aborted."
+[ERROR 05-Apr-23 12:36:47 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=eslint-lsp) error="Installation was aborted."
+[ERROR 05-Apr-23 12:36:47 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=gopls) error="Installation was aborted."
+[INFO  05-Apr-23 12:36:54 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=typescript-language-server) {}
+[INFO  05-Apr-23 12:36:54 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=gopls) {}
+[INFO  05-Apr-23 12:36:54 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=eslint-lsp) {}
+[ERROR 05-Apr-23 12:37:27 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=eslint-lsp) error="Installation was aborted."
+[ERROR 05-Apr-23 12:37:27 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=typescript-language-server) error="Installation was aborted."
+[ERROR 05-Apr-23 12:37:28 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=gopls) error="Installation was aborted."
+[INFO  05-Apr-23 12:37:42 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=typescript-language-server) {}
+[INFO  05-Apr-23 12:37:42 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=gopls) {}
+[INFO  05-Apr-23 12:37:42 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=eslint-lsp) {}
+[ERROR 05-Apr-23 12:37:56 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=typescript-language-server) error="Installation was aborted."
+[ERROR 05-Apr-23 12:37:56 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=eslint-lsp) error="Installation was aborted."
+[ERROR 05-Apr-23 12:37:56 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:200: Installation failed for Package(name=gopls) error="Installation was aborted."
+[INFO  05-Apr-23 12:38:59 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=typescript-language-server) {}
+[INFO  05-Apr-23 12:38:59 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=gopls) {}
+[INFO  05-Apr-23 12:38:59 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=eslint-lsp) {}
+[INFO  05-Apr-23 12:39:12 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:193: Installation succeeded for Package(name=typescript-language-server)
+[INFO  05-Apr-23 12:40:54 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:193: Installation succeeded for Package(name=gopls)
+[INFO  05-Apr-23 12:41:05 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:193: Installation succeeded for Package(name=eslint-lsp)
+[INFO  12-Apr-23 9:58:11 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=spectral-language-server) {}
+[INFO  12-Apr-23 10:04:27 AM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:193: Installation succeeded for Package(name=spectral-language-server)
+[ERROR 20-Apr-23 11:17:24 AM] ...acker\start\mason.nvim/lua/mason-core/providers/init.lua:75: Provider "github" "get_latest_release" failed: spawn: powershell failed with exit code 1 and signal 0. iwr : The remote name could not be resolved: 'api.mason-registry.dev'
+At line:1 char:174
++ ... ite-Output (iwr -Headers @{"User-Agent"="mason.nvim (+https://github. ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebExc 
+   eption
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+ 
+
+[ERROR 20-Apr-23 11:17:24 AM] ...acker\start\mason.nvim/lua/mason-core/providers/init.lua:75: Provider "github" "get_latest_release" failed: spawn: gh failed with exit code - and signal -. gh is not executable
+[ERROR 20-Apr-23 11:17:24 AM] ...acker\start\mason.nvim/lua/mason-core/providers/init.lua:86: No provider implementation succeeded for github.get_latest_release
+[ERROR 20-Apr-23 11:17:24 AM] ...r\start\mason.nvim/lua/mason-registry/sources/github.lua:168: Failed to install registry GitHubRegistrySource(repo=mason-org/mason-registry). "Failed to fetch latest registry version from GitHub API."
+[INFO  20-May-23 11:47:15 PM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=css-lsp) {}
+[INFO  20-May-23 11:48:08 PM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:193: Installation succeeded for Package(name=css-lsp)
+[INFO  20-May-23 11:49:58 PM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:166: Executing installer for Package(name=html-lsp) {}
+[INFO  20-May-23 11:50:42 PM] ...acker\start\mason.nvim/lua/mason-core/installer/init.lua:193: Installation succeeded for Package(name=html-lsp)
