@@ -1,0 +1,2 @@
+ERROR | vscode-loader: Could not parse file C:\Users\AnNguyen\AppData\Local\nvim-data\site\pack\packer\start\friendly-snippets\snippets\go.json: Expected the end but found invalid token at character 10226
+ERROR | vscode-loader: Reading json from file `C:\Users\AnNguyen\AppData\Local\nvim-data\site\pack\packer\start\friendly-snippets\snippets\go.json` failed, skipping it.
