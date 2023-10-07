@@ -63,6 +63,23 @@ require("packer").startup(function(use)
         { "f3fora/cmp-spell", { "hrsh7th/cmp-calc" }, { "hrsh7th/cmp-emoji" } },
       },
     })
+    use {
+        'akinsho/git-conflict.nvim',
+        tag = "*",
+        config = function()
+            require('git-conflict').setup {
+                default_mappings = true,
+                default_commands = true,
+                disable_diagnostics = false,
+                list_opener = 'copen',
+                highlights = {
+                    incoming = 'DiffAdd',
+                    current = 'DiffText',
+                }
+            }
+        end
+    }
+
 
 end)
 -- some
@@ -128,7 +145,14 @@ lsp.ensure_installed({
 	"gopls",
 	"eslint",
 	"rust_analyzer",
+	"html",
+	"cssls",
+	"pylsp",
+	"dockerls",
+	"docker_compose_language_service",
+	"bufls",
 })
+
 
 lsp.set_preferences({
 	sign_icons = {}
