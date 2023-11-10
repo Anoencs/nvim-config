@@ -5,10 +5,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 -- Add packer.nvim to the runtime path
---vim.o.runtimepath = vim.o.runtimepath .. ';C:\\Users\\AnNguyen\\AppData\\Local\\nvim\\packer.nvim'
-
 -- Set the packpath to include the packer.nvim directory
---vim.o.packpath = vim.o.packpath .. ';C:\\Users\\AnNguyen\\AppData\\Local\\nvim\\packer'
 print("Welcome Anoencs! How are you doing today?")
 vim.g.mapleader = " "
 
@@ -32,12 +29,15 @@ require("packer").startup(function(use)
   		branch = 'v1.x',
   		requires = {
 			{'neovim/nvim-lspconfig'},             -- Required
+			{'nvim-lua/completion-nvim'},
 			{'simrat39/rust-tools.nvim'},
 			{'williamboman/mason.nvim'},           -- Optional
 			{'williamboman/mason-lspconfig.nvim'}, -- Optional
 			{'hrsh7th/nvim-cmp'},         -- Required
 			{'hrsh7th/cmp-nvim-lsp'},     -- Required
 			{'hrsh7th/cmp-buffer'},       -- Optional
+			{'hrsh7th/vim-vsnip'},
+			{'hrsh7th/cmp-vsnip'},
 			{'hrsh7th/cmp-path'},         -- Optional
 			{'saadparwaiz1/cmp_luasnip'}, -- Optional
 			{'hrsh7th/cmp-nvim-lua'},     -- Optional
@@ -46,7 +46,6 @@ require("packer").startup(function(use)
 		}
 	}
 	use {"akinsho/toggleterm.nvim", tag = '*' }
-	use "jhlgns/naysayer88.vim"
 	use "terrortylor/nvim-comment"
 	use "CreaturePhil/vim-handmade-hero"
 	use({
@@ -80,8 +79,15 @@ require("packer").startup(function(use)
         end
     }
 
+	use "mattn/emmet-vim"
+-- install without yarn or npm
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function() vim.fn["mkdp#util#install"]() end,
+	})
 
 end)
+
 -- some
 vim.keymap.set("n", "<M-b>", ":Ex<CR>")
 
@@ -151,8 +157,8 @@ lsp.ensure_installed({
 	"dockerls",
 	"docker_compose_language_service",
 	"bufls",
+	"emmet_language_server"
 })
-
 
 lsp.set_preferences({
 	sign_icons = {}
@@ -173,7 +179,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	}
 )
 
--- new lsp config
+-- rust config
+vim.g.rustfmt_on_save = 1
 local rt = require("rust-tools")
 
 rt.setup({
@@ -320,7 +327,7 @@ vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.implementation()<CR>', 
 vim.api.nvim_set_keymap('n', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {silent = true})
 vim.api.nvim_set_keymap('n', '1gD', '<cmd>lua vim.lsp.buf.type_definition()<CR>', {silent = true})
 vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', {silent = true})
-vim.api.nvim_set_keymap('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', {silent = true}) 
 vim.api.nvim_set_keymap('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', {silent = true})
 vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {silent = true})
 
