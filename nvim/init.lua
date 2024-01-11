@@ -1,12 +1,11 @@
 -- Automatically install packer.nvim if it doesn't exist
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim' if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
 -- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+--vim.g.loaded_netrw = 1
+--vim.g.loaded_netrwPlugin = 1
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
@@ -16,14 +15,13 @@ vim.opt.termguicolors = true
 print("Welcome Anoencs! How are you doing today?")
 vim.g.mapleader = " "
 
-
 require("packer").startup(function(use)
 	use { "wbthomason/packer.nvim" }
 	use { "ellisonleao/gruvbox.nvim" }
 	use {"ur4ltz/surround.nvim"}
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.1',
+		'nvim-telescope/telescope.nvim', tag = '0.1.5',
 		 requires = { {'nvim-lua/plenary.nvim'} }
 	}
 	use {
@@ -33,7 +31,7 @@ require("packer").startup(function(use)
 	use { "fatih/vim-go" }
 	use {
 		'VonHeikemen/lsp-zero.nvim',
-  		branch = 'v1.x',
+  		branch = 'v3.x',
   		requires = {
 			{'neovim/nvim-lspconfig'},             -- Required
 			{'nvim-lua/completion-nvim'},
@@ -85,7 +83,7 @@ require("packer").startup(function(use)
             }
         end
     }
-
+	use "lervag/vimtex"
 	use "mattn/emmet-vim"
 -- install without yarn or npm
 	use({
@@ -99,8 +97,27 @@ require("packer").startup(function(use)
 		'nvim-tree/nvim-web-devicons', -- optional
 	  },
 	}
+
+	use {'christoomey/vim-tmux-navigator', lazy = false,}
 end)
 
+----tmux ------
+
+vim.keymap.set("n", "C-h", ":TmuxNavigateLeft<CR>")
+vim.keymap.set("n", "C-l", ":TmuxNavigateRight<CR>")
+vim.keymap.set("n", "C-j", ":TmuxNavigateDown<CR>")
+vim.keymap.set("n", "C-k", ":TmuxNavigateUp<CR>")
+--- mason ----
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "",
+            package_pending = "",
+            package_uninstalled = "",
+        },
+    }
+})
+require("mason-lspconfig").setup()
 -- nvim-tree 
 -- mapping for nvim-tree
 local function my_nvim_tree_on_attach(bufnr)
@@ -124,6 +141,7 @@ local function my_nvim_tree_on_attach(bufnr)
   vim.keymap.set('n', 'R',       api.tree.reload,                     opts('Refresh'))
   vim.keymap.set('n', '<CR>',    api.node.open.edit,                  opts('Open'))
   vim.keymap.set('n', '<Tab>',   api.node.open.preview,               opts('Open Preview'))
+  vim.keymap.set('n', '<C-v>',   api.node.open.vertical,              opts('Open: Vertical Split'))
 
   ----- navigation
   vim.keymap.set('n', '<C-o>',   api.tree.change_root_to_node,        opts('CD'))
@@ -138,6 +156,7 @@ local function my_nvim_tree_on_attach(bufnr)
   vim.keymap.set('n', 'H',       api.tree.toggle_hidden_filter,       opts('Toggle Filter: Dotfiles'))
   vim.keymap.set('n', 'I',       api.tree.toggle_gitignore_filter,    opts('Toggle Filter: Git Ignore'))
   ----- bookmark
+  --jk
   vim.keymap.set('n', 'bd',      api.marks.bulk.delete,               opts('Delete Bookmarked'))
   vim.keymap.set('n', 'bmv',     api.marks.bulk.move,                 opts('Move Bookmarked'))
   vim.keymap.set('n', 'm',       api.marks.toggle,                    opts('Toggle Bookmark'))
@@ -157,7 +176,6 @@ local function my_nvim_tree_on_attach(bufnr)
   -- vim.keymap.set('n', '<C-k>',   api.node.show_info_popup,            opts('Info'))
   -- vim.keymap.set('n', '<C-r>',   api.fs.rename_sub,                   opts('Rename: Omit Filename'))
   -- vim.keymap.set('n', '<C-t>',   api.node.open.tab,                   opts('Open: New Tab'))
-  -- vim.keymap.set('n', '<C-v>',   api.node.open.vertical,              opts('Open: Vertical Split'))
   -- vim.keymap.set('n', '<C-x>',   api.node.open.horizontal,            opts('Open: Horizontal Split'))
   -- vim.keymap.set('n', '<BS>',    api.node.navigate.parent_close,      opts('Close Directory'))
   -- vim.keymap.set('n', 'B',       api.tree.toggle_no_buffer_filter,    opts('Toggle Filter: No Buffer'))
@@ -459,6 +477,7 @@ vim.keymap.set('n', '<leader>f', function()
     })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
+
 vim.keymap.set('n', '<leader>p', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<M-p>', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
@@ -496,18 +515,24 @@ require("lualine").setup{
 local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
+-- lsp.ensure_installed({
+-- 	"gopls",
+-- 	"eslint",
+-- 	"rust_analyzer",
+-- 	"html",
+-- 	"cssls",
+-- 	"pylsp",
+-- 	"emmet_language_server"
+-- })
 
-lsp.ensure_installed({
-	"tsserver",
+
+lsp.setup_servers({
 	"gopls",
 	"eslint",
 	"rust_analyzer",
 	"html",
 	"cssls",
 	"pylsp",
-	"dockerls",
-	"docker_compose_language_service",
-	"bufls",
 	"emmet_language_server"
 })
 
@@ -515,10 +540,55 @@ lsp.set_preferences({
 	sign_icons = {}
 })
 
+--- config rust analyzer
+local nvim_lsp = require("lspconfig")
+
+local on_attach = function(client)
+    require'completion'.on_attach(client)
+end
+
+nvim_lsp.rust_analyzer.setup({
+    on_attach=on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
+--------------
+
+local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+local lsp_format_on_save = function(bufnr)
+  vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    group = augroup,
+    buffer = bufnr,
+    callback = function()
+      vim.lsp.buf.format()
+    end,
+  })
+end
+
 lsp.on_attach(function(client, bufnr)
+	lsp_format_on_save(bufnr)
 	local opts = {buffer = bufnr, remap = false}
 	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 end)
+
+
 
 lsp.setup()
 
@@ -531,7 +601,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 -- rust config
-vim.g.rustfmt_on_save = 1
 local rt = require("rust-tools")
 
 rt.setup({
