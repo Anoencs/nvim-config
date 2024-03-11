@@ -63,6 +63,7 @@ require("packer").startup(function(use)
         { "hrsh7th/cmp-cmdline" },
         { "hrsh7th/vim-vsnip" },
         { "hrsh7th/cmp-vsnip" },
+		{'Thomashighbaugh/nvim-forge'},
         { "hrsh7th/vim-vsnip-integ" },
         { "f3fora/cmp-spell", { "hrsh7th/cmp-calc" }, { "hrsh7th/cmp-emoji" } },
       },
@@ -487,7 +488,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 
 -- TREESITTER
 require'nvim-treesitter.configs'.setup {
-	ensure_installed = {"c", "lua", "vim", "go", "javascript", "typescript", "rust","html"},
+	ensure_installed = {"c", "lua", "vim", "go", "javascript", "typescript", "rust","html", "prisma"},
 	highlight = {
 		enable = true,
 	}
@@ -533,12 +534,17 @@ lsp.setup_servers({
 	"html",
 	"cssls",
 	"pylsp",
-	"emmet_language_server"
+	"emmet_language_server",
+	"eslint",
+	"solidity_ls",
+--	"solidity_ls_nomicfoundation",
 })
 
 lsp.set_preferences({
 	sign_icons = {}
 })
+
+
 
 --- config rust analyzer
 local nvim_lsp = require("lspconfig")
@@ -546,7 +552,43 @@ local nvim_lsp = require("lspconfig")
 local on_attach = function(client)
     require'completion'.on_attach(client)
 end
+----- ts js
+nvim_lsp.eslint.setup({
+  bin = 'eslint', -- or `eslint_d`
+  code_actions = {
+    enable = true,
+    apply_on_save = {
+      enable = true,
+      types = { "directive", "problem", "suggestion", "layout" },
+    },
+    disable_rule_comment = {
+      enable = true,
+      location = "separate_line", -- or `same_line`
+    },
+  },
+  diagnostics = {
+    enable = true,
+    report_unused_disable_directives = false,
+    run_on = "type", -- or `save`
+  },
+}) 
+------- solidity  
+nvim_lsp.solidity.setup({
+  -- on_attach = on_attach, -- probably you will need this.
+  -- capabilities = capabilities,
+  settings = {
+    -- example of global remapping
+    solidity = {
+        includePath = '',
+        remapping = { ["@OpenZeppelin/"] = 'OpenZeppelin/openzeppelin-contracts@4.6.0/' },
+        -- Array of paths to pass as --allow-paths to solc
+        allowPaths = {}
+    }
+  },
+})
 
+
+----- rust
 nvim_lsp.rust_analyzer.setup({
     on_attach=on_attach,
     settings = {
@@ -694,6 +736,7 @@ cmp.setup({
   },
   -- Installed sources:
   sources = {
+	{ name = 'nvim-forge'},
     { name = 'path' },                              -- file paths
     { name = 'nvim_lsp', keyword_length = 3 },      -- from language server
     { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
