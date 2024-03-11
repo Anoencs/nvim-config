@@ -190,6 +190,11 @@ _G.packer_plugins = {
     path = "/home/anoencs/.local/share/nvim/site/pack/packer/start/nvim-comment",
     url = "https://github.com/terrortylor/nvim-comment"
   },
+  ["nvim-forge"] = {
+    loaded = true,
+    path = "/home/anoencs/.local/share/nvim/site/pack/packer/start/nvim-forge",
+    url = "https://github.com/Thomashighbaugh/nvim-forge"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/anoencs/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -251,6 +256,11 @@ _G.packer_plugins = {
     path = "/home/anoencs/.local/share/nvim/site/pack/packer/start/vim-handmade-hero",
     url = "https://github.com/CreaturePhil/vim-handmade-hero"
   },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/home/anoencs/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
   ["vim-vsnip"] = {
     loaded = true,
     path = "/home/anoencs/.local/share/nvim/site/pack/packer/start/vim-vsnip",
@@ -260,6 +270,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/anoencs/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
     url = "https://github.com/hrsh7th/vim-vsnip-integ"
+  },
+  vimtex = {
+    loaded = true,
+    path = "/home/anoencs/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
   }
 }
 
