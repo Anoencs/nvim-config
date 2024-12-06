@@ -152,6 +152,10 @@ return require("packer").startup(function(use)
 		        })
 		    end
 		})
+		use {
+			'crusj/structrue-go.nvim',
+			branch = "main"
+		}
     
     -- ... [Rest of your plugin declarations]
 
@@ -178,4 +182,5 @@ return require("packer").startup(function(use)
     require("plugins.configs.theme")
     require("plugins.configs.treesitter")
 	require("plugins.configs.todo")
+	require("plugins.configs.go-struct")
 end)

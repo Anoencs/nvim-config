@@ -142,19 +142,21 @@ require("nvim-tree").setup {
 			bookmarks = true,
 		  },
 		  glyphs = {
-			default = "",
+			default = "",
 			symlink = "",
 			bookmark = "󰆤",
 			modified = "●",
 			folder = {
-			  arrow_closed = "",
-			  arrow_open = "",
+	--		  arrow_closed = "",
+			  arrow_closed = "",
+		--	  arrow_open = "",
+			  arrow_open = "",
 			  default = "",
 			  open = "",
 			  empty = "",
 			  empty_open = "",
-			  symlink = "",
-			  symlink_open = "",
+			  symlink = "",
+			  symlink_open = "",
 			},
 			git = {
 			  unstaged = "✗",
@@ -306,3 +308,5 @@ require("nvim-tree").setup {
 	  },
 	    -- ... [rest of your nvim-tree configuration]
 }
+
+
