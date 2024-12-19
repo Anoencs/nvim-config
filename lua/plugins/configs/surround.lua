@@ -10,5 +10,5 @@ require("surround").setup({
         nestable = { b = { "(", ")" }, s = { "[", "]" }, B = { "{", "}" }, a = { "<", ">" } },
         linear = { q = { "'", "'" }, t = { "`", "`" }, d = { '"', '"' } }
     },
-    prefix = "s"
+    prefix = "<leader>s"
 })

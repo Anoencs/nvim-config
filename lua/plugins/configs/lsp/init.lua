@@ -80,14 +80,15 @@ vim.diagnostic.config({
 lsp.setup()
 
 -- require all specific language configurations
---require("plugins.configs.lsp.golang")
---require("plugins.configs.lsp.rust")
-local M = {}
+require("plugins.configs.lsp.golang")
+require("plugins.configs.lsp.rust")
 
-function M.setup()
-    require("plugins.configs.lsp.golang").setup()
-    require("plugins.configs.lsp.rust").setup()
-    -- Add other LSP setups here
-end
-
-return M
+-- local M = {}
+--
+-- function M.setup()
+--     require("plugins.configs.lsp.golang").setup()
+--     require("plugins.configs.lsp.rust").setup()
+--     -- Add other LSP setups here
+-- end
+--
+-- return M

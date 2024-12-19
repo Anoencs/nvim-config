@@ -109,15 +109,15 @@ _G.packer_plugins = {
     path = "/Users/eudaimonia/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["completion-nvim"] = {
-    loaded = true,
-    path = "/Users/eudaimonia/.local/share/nvim/site/pack/packer/start/completion-nvim",
-    url = "https://github.com/nvim-lua/completion-nvim"
-  },
   ["emmet-vim"] = {
     loaded = true,
     path = "/Users/eudaimonia/.local/share/nvim/site/pack/packer/start/emmet-vim",
     url = "https://github.com/mattn/emmet-vim"
+  },
+  ["flash.nvim"] = {
+    loaded = true,
+    path = "/Users/eudaimonia/.local/share/nvim/site/pack/packer/start/flash.nvim",
+    url = "https://github.com/folke/flash.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -130,7 +130,7 @@ _G.packer_plugins = {
     url = "https://github.com/ibhagwan/fzf-lua"
   },
   ["git-conflict.nvim"] = {
-    config = { "\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\rincoming\15MyIncoming\fcurrent\14MyCurrent\1\0\5\21default_mappings\2\15highlights\0\16list_opener\ncopen\24disable_diagnostics\1\21default_commands\2\nsetup\17git-conflict\frequire\0" },
+    config = { "\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\rincoming\15MyIncoming\fcurrent\14MyCurrent\1\0\5\15highlights\0\16list_opener\ncopen\24disable_diagnostics\1\21default_commands\2\21default_mappings\2\nsetup\17git-conflict\frequire\0" },
     loaded = true,
     path = "/Users/eudaimonia/.local/share/nvim/site/pack/packer/start/git-conflict.nvim",
     url = "https://github.com/akinsho/git-conflict.nvim"
@@ -193,6 +193,11 @@ _G.packer_plugins = {
     path = "/Users/eudaimonia/.local/share/nvim/site/pack/packer/start/move.vim",
     url = "https://github.com/modocache/move.vim"
   },
+  ["neoscroll.nvim"] = {
+    loaded = true,
+    path = "/Users/eudaimonia/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
+    url = "https://github.com/karb94/neoscroll.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/eudaimonia/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -234,9 +239,8 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/eudaimonia/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
+    loaded = true,
+    path = "/Users/eudaimonia/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
@@ -248,6 +252,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/eudaimonia/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["refactoring.nvim"] = {
+    loaded = true,
+    path = "/Users/eudaimonia/.local/share/nvim/site/pack/packer/start/refactoring.nvim",
+    url = "https://github.com/ThePrimeagen/refactoring.nvim"
   },
   ["rust-tools.nvim"] = {
     loaded = true,
@@ -309,7 +318,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: git-conflict.nvim
 time([[Config for git-conflict.nvim]], true)
-try_loadstring("\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\rincoming\15MyIncoming\fcurrent\14MyCurrent\1\0\5\21default_mappings\2\15highlights\0\16list_opener\ncopen\24disable_diagnostics\1\21default_commands\2\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
+try_loadstring("\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\rincoming\15MyIncoming\fcurrent\14MyCurrent\1\0\5\15highlights\0\16list_opener\ncopen\24disable_diagnostics\1\21default_commands\2\21default_mappings\2\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
 time([[Config for git-conflict.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]

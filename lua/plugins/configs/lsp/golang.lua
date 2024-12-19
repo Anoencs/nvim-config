@@ -1,5 +1,4 @@
-local nvim_lsp = require('lspconfig')
-
+--local nvim_lsp = require('lspconfig')
 -- Golangci-lint configuration
 -- local function configure_golangci_lint()
 --     local lspconfig = require('lspconfig')
@@ -106,6 +105,18 @@ require('go').setup({
     test_efm = false,
     luasnip = false,
 })
+require('lspconfig').gopls.setup{
+    settings = {
+        gopls = {
+            analyses = {
+                vulncheck = true,
+            },
+            staticcheck = true,
+            usePlaceholders = true,
+            completeUnimported = true,
+        },
+    },
+}
 
 -- Initial linter setup
 --vim.g.go_linter_enabled = true

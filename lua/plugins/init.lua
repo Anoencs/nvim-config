@@ -17,9 +17,10 @@ return require("packer").startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
+    use { 'kyazdani42/nvim-web-devicons'}
     use {
     	  'nvim-lualine/lualine.nvim',
-    	   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    	   requires = { 'kyazdani42/nvim-web-devicons'}
     	}
     	use { "fatih/vim-go" }
     	use { "modocache/move.vim"}
@@ -29,7 +30,7 @@ return require("packer").startup(function(use)
       		requires = {
     		--	{'neovim/nvim-lspconfig', commit = '5e54173da4e0ffd8e9559c0a1fddfb3b7df97bec'},             -- Required
     			{'neovim/nvim-lspconfig'},             -- Required
-    			{'nvim-lua/completion-nvim'},
+ --   			{'nvim-lua/completion-nvim'},
     		--	{'mrcjkb/rustaceanvim'},
     			{'simrat39/rust-tools.nvim'},
     			{'williamboman/mason.nvim'},           -- Optional
@@ -156,7 +157,17 @@ return require("packer").startup(function(use)
 			'crusj/structrue-go.nvim',
 			branch = "main"
 		}
-    
+	--	use 'ggandor/leap.nvim'
+		use 'folke/flash.nvim'
+		use 'karb94/neoscroll.nvim'
+		use {
+		    "ThePrimeagen/refactoring.nvim",
+		    requires = {
+		        {"nvim-lua/plenary.nvim"},
+		        {"nvim-treesitter/nvim-treesitter"}
+		    }
+		}
+		
     -- ... [Rest of your plugin declarations]
 
     -- After declaring plugins, configure them
@@ -183,4 +194,8 @@ return require("packer").startup(function(use)
     require("plugins.configs.treesitter")
 	require("plugins.configs.todo")
 	require("plugins.configs.go-struct")
+	require("plugins.configs.flash")
+	require("plugins.configs.util")
+	require("plugins.configs.refactorings")
+	--require("plugins.configs.leap")
 end)

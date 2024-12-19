@@ -2,6 +2,7 @@ local keymap = vim.keymap.set
 
 -- General mappings
 keymap("i", "jj", "<Esc>")
+keymap("n","<leader>e", ":Telescope diagnostics<CR>",{ noremap = true, silent = true })
 
 -- Tree
 keymap("n", "<M-b>", ":NvimTreeToggle<CR>")
@@ -44,6 +45,7 @@ keymap("n", "C-l", ":TmuxNavigateRight<CR>")
 keymap("n", "C-j", ":TmuxNavigateDown<CR>")
 keymap("n", "C-k", ":TmuxNavigateUp<CR>")
 
+
 -- LSP keymaps will be added by the LSP configuration
 --
 --
@@ -66,3 +68,13 @@ end, { desc = "Previous todo comment" })
 
 -- goplements
 keymap('n', '<leader>gi', ':GoplementsToggle<CR>', {noremap = true})
+-- leap
+-- vim.keymap.set('n',        's', '<Plug>(leap)')
+-- vim.keymap.set('n',        'S', '<Plug>(leap-from-window)')
+-- vim.keymap.set({'x', 'o'}, 's', '<Plug>(leap-forward)')
+-- vim.keymap.set({'x', 'o'}, 'S', '<Plug>(leap-backward)')
+--flash
+vim.keymap.set({'n', 'x', 'o'}, 's', function() require("flash").jump() end)
+vim.keymap.set({'n', 'x', 'o'}, 'S', function() require("flash").treesitter() end)
+vim.keymap.set({'o'}, 'r', function() require("flash").remote() end)
+vim.keymap.set({'o'}, 'R', function() require("flash").treesitter_search() end)

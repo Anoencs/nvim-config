@@ -1,4 +1,4 @@
--- Markdown Preview settings
+-- Markdown Preview configuration
 vim.g.mkdp_auto_start = 0
 vim.g.mkdp_auto_close = 1
 vim.g.mkdp_refresh_slow = 0
@@ -9,6 +9,7 @@ vim.g.mkdp_browser = ''
 vim.g.mkdp_echo_preview_url = 0
 vim.g.mkdp_browserfunc = ''
 
+-- Preview options configuration
 vim.g.mkdp_preview_options = {
     mkit = {},
     katex = {},
@@ -24,9 +25,17 @@ vim.g.mkdp_preview_options = {
     toc = {}
 }
 
--- Custom browser function
-function OpenMarkdownPreview(url)
-    vim.fn.system({'open', '-a', 'Arc Browser', '-n', '--args', '--new-window', url})
-end
+-- Path configurations
+vim.g.mkdp_markdown_css = ''
+vim.g.mkdp_highlight_css = ''
+vim.g.mkdp_port = ''
+vim.g.mkdp_page_title = '「${name}」'
+vim.g.mkdp_images_path = '/home/user/.markdown_images'
 
-vim.g.mkdp_browserfunc = 'OpenMarkdownPreview'
+-- Filetype and theme configurations
+vim.g.mkdp_filetypes = {'markdown'}
+vim.g.mkdp_theme = 'dark'
+
+-- Combined preview settings
+vim.g.mkdp_combine_preview = 0
+vim.g.mkdp_combine_preview_auto_refresh = 1

@@ -142,7 +142,7 @@ require("nvim-tree").setup {
 			bookmarks = true,
 		  },
 		  glyphs = {
-			default = "",
+			default = "",
 			symlink = "",
 			bookmark = "󰆤",
 			modified = "●",
