@@ -167,7 +167,7 @@ return require("packer").startup(function(use)
 		        {"nvim-treesitter/nvim-treesitter"}
 		    }
 		}
-		
+ 		use 'mg979/vim-visual-multi'
     -- ... [Rest of your plugin declarations]
 
     -- After declaring plugins, configure them
@@ -182,6 +182,7 @@ return require("packer").startup(function(use)
     require("plugins.configs.dap")
     require("plugins.configs.git-conflicts")
     require("plugins.configs.gitsigns")
+    require("plugins.configs.vim-visual-multi")
     require("plugins.configs.lualine")
     require("plugins.configs.markdown")
     require("plugins.configs.mason")
