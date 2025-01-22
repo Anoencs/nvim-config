@@ -46,6 +46,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
     vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
     vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts) 
+	vim.keymap.set('n', '<leader>rn','<cmd>lua vim.lsp.buf.rename()<cr>',opts)
   end
 })
 
@@ -72,9 +73,21 @@ end)
 
 -- Diagnostics configuration
 vim.diagnostic.config({
-    signs = false,
-    virtual_text = true,
-    underline = false,
+    -- signs = false,
+    -- virtual_text = true,
+    -- underline = false,
+    virtual_text = {
+        prefix = '●',
+        source = "always",
+    },
+    float = {
+        source = "always",
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+
 })
 
 lsp.setup()

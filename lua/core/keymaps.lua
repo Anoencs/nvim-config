@@ -78,3 +78,17 @@ vim.keymap.set({'n', 'x', 'o'}, 's', function() require("flash").jump() end)
 vim.keymap.set({'n', 'x', 'o'}, 'S', function() require("flash").treesitter() end)
 vim.keymap.set({'o'}, 'r', function() require("flash").remote() end)
 vim.keymap.set({'o'}, 'R', function() require("flash").treesitter_search() end)
+
+--List error
+vim.keymap.set('n', '<leader>ce', function()
+	local diagnostics = vim.diagnostic.get(0, {lnum = vim.fn.line(".") - 1})
+	if #diagnostics > 0 then 
+		local message = diagnostics[1].message
+		vim.fn.setreg("+", message)
+		print("Copied diagnostics: " .. message)
+	else 
+		print("No diagnostic at cursor")
+	end
+end, {noremap = true, silent = true})
+vim.keymap.set('n', '<leader>ne',vim.diagnostic.goto_next)
+vim.keymap.set('n', '<leader>pe',vim.diagnostic.goto_prev)
