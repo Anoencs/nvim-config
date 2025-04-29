@@ -18,13 +18,13 @@ lsp.setup_servers({
     "rust_analyzer",
     "move_analyzer",
     "ts_ls",
-    "pylsp",
-    "pylyzer",
+	"pylsp",
     "emmet_language_server",
     "eslint",
     "solidity",
     "solidity_ls_nomicfoundation",
     "solidity_ls",
+	"clangd",
  --   "golangci_lint_ls"
 })
 vim.api.nvim_create_autocmd('LspAttach', {

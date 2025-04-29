@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/flash.nvim",
     url = "https://github.com/folke/flash.nvim"
   },
+  ["fold-preview.nvim"] = {
+    loaded = true,
+    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/fold-preview.nvim",
+    url = "https://github.com/anuvyklack/fold-preview.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -130,7 +135,7 @@ _G.packer_plugins = {
     url = "https://github.com/ibhagwan/fzf-lua"
   },
   ["git-conflict.nvim"] = {
-    config = { "\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\fcurrent\14MyCurrent\rincoming\15MyIncoming\1\0\5\15highlights\0\16list_opener\ncopen\24disable_diagnostics\1\21default_commands\2\21default_mappings\2\nsetup\17git-conflict\frequire\0" },
+    config = { "\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\rincoming\15MyIncoming\fcurrent\14MyCurrent\1\0\5\15highlights\0\16list_opener\ncopen\24disable_diagnostics\1\21default_commands\2\21default_mappings\2\nsetup\17git-conflict\frequire\0" },
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/git-conflict.nvim",
     url = "https://github.com/akinsho/git-conflict.nvim"
@@ -146,7 +151,7 @@ _G.packer_plugins = {
     url = "https://github.com/ray-x/go.nvim"
   },
   ["goplements.nvim"] = {
-    config = { "\27LJ\2\n¡\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\vprefix\1\0\4\20display_package\1\ahl\15Goplements\19namespace_name\15goplements\vprefix\0\1\0\2\vstruct\17implements: \14interface\21implemented by: \nsetup\15goplements\frequire\0" },
+    config = { "\27LJ\2\n¡\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\vprefix\1\0\4\20display_package\1\vprefix\0\ahl\15Goplements\19namespace_name\15goplements\1\0\2\14interface\21implemented by: \vstruct\17implements: \nsetup\15goplements\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -162,6 +167,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/guihua.lua",
     url = "https://github.com/ray-x/guihua.lua"
+  },
+  ["keymap-amend.nvim"] = {
+    loaded = true,
+    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/keymap-amend.nvim",
+    url = "https://github.com/anuvyklack/keymap-amend.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -243,6 +253,22 @@ _G.packer_plugins = {
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["obsidian.nvim"] = {
+    loaded = true,
+    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
+    url = "https://github.com/epwalsh/obsidian.nvim"
+  },
+  ["octo.nvim"] = {
+    config = { "\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tocto\frequire\0" },
+    loaded = true,
+    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/octo.nvim",
+    url = "https://github.com/pwntester/octo.nvim"
+  },
+  ["ollama.nvim"] = {
+    loaded = true,
+    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/ollama.nvim",
+    url = "https://github.com/nomnivore/ollama.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -252,6 +278,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["pretty-fold.nvim"] = {
+    config = { "\27LJ\2\nB\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\25plugins.configs.fold\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/opt/pretty-fold.nvim",
+    url = "https://github.com/anuvyklack/pretty-fold.nvim"
   },
   ["refactoring.nvim"] = {
     loaded = true,
@@ -278,6 +312,12 @@ _G.packer_plugins = {
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["time-machine.nvim"] = {
+    config = { "\27LJ\2\nJ\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup!plugins.configs.time-machine\frequire\0" },
+    loaded = true,
+    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/time-machine.nvim",
+    url = "https://github.com/y3owk1n/time-machine.nvim"
+  },
   ["todo-comments.nvim"] = {
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
@@ -297,6 +337,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/vim-handmade-hero",
     url = "https://github.com/CreaturePhil/vim-handmade-hero"
+  },
+  ["vim-illuminate"] = {
+    loaded = true,
+    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,
@@ -321,10 +366,27 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: time-machine.nvim
+time([[Config for time-machine.nvim]], true)
+try_loadstring("\27LJ\2\nJ\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup!plugins.configs.time-machine\frequire\0", "config", "time-machine.nvim")
+time([[Config for time-machine.nvim]], false)
 -- Config for: git-conflict.nvim
 time([[Config for git-conflict.nvim]], true)
-try_loadstring("\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\fcurrent\14MyCurrent\rincoming\15MyIncoming\1\0\5\15highlights\0\16list_opener\ncopen\24disable_diagnostics\1\21default_commands\2\21default_mappings\2\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
+try_loadstring("\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\rincoming\15MyIncoming\fcurrent\14MyCurrent\1\0\5\15highlights\0\16list_opener\ncopen\24disable_diagnostics\1\21default_commands\2\21default_mappings\2\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
 time([[Config for git-conflict.nvim]], false)
+-- Config for: octo.nvim
+time([[Config for octo.nvim]], true)
+try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tocto\frequire\0", "config", "octo.nvim")
+time([[Config for octo.nvim]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd pretty-fold.nvim ]]
+
+-- Config for: pretty-fold.nvim
+try_loadstring("\27LJ\2\nB\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\25plugins.configs.fold\frequire\0", "config", "pretty-fold.nvim")
+
+time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads

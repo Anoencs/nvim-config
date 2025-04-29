@@ -167,22 +167,66 @@ return require("packer").startup(function(use)
 		        {"nvim-treesitter/nvim-treesitter"}
 		    }
 		}
+	--	use 'huggingface/llm.nvim'
+	--	use 'gsuuon/model.nvim'
+		use 'nomnivore/ollama.nvim'
  		use 'mg979/vim-visual-multi'
-    -- ... [Rest of your plugin declarations]
+		use {
+			 "epwalsh/obsidian.nvim",
+  			tag = "*",  
+  			requires = {
+    			"nvim-lua/plenary.nvim",
+			}
+		}
+		use {
+		  'pwntester/octo.nvim',
+		  requires = {
+		    'nvim-lua/plenary.nvim',
+		    'nvim-telescope/telescope.nvim',
+		    -- OR 'ibhagwan/fzf-lua',
+		    'nvim-tree/nvim-web-devicons',
+		  },
+		  config = function ()
+		    require"octo".setup()
+		  end
+		}
+		use 'RRethy/vim-illuminate'
+		
 
+		use {
+		    'anuvyklack/pretty-fold.nvim',
+			after = {'nvim-treesitter'},
+		    requires = {
+		        'anuvyklack/fold-preview.nvim',
+		        'anuvyklack/keymap-amend.nvim', -- Required for fold-preview
+		    },
+		    config = function()
+		        require("plugins.configs.fold").setup()
+		    end
+		}
+		use {
+		    'y3owk1n/time-machine.nvim',
+		    requires = {
+		        'nvim-lua/plenary.nvim',
+		    },
+		    config = function()
+		        require("plugins.configs.time-machines").setup()
+		    end
+		}
+		    
     -- After declaring plugins, configure them
-    --require("plugins.configs.lsp").setup()
 	-- lsp
     require("plugins.configs.lsp")
 	-- plugin
     require("plugins.configs.cmp-setup")
     require("plugins.configs.comment")
     require("plugins.configs.completion")
- --   require("plugins.configs.copilot")
+    require("plugins.configs.obsidians")
+    require("plugins.configs.octo")
+    require("plugins.configs.illuminate")
     require("plugins.configs.dap")
     require("plugins.configs.git-conflicts")
     require("plugins.configs.gitsigns")
-    require("plugins.configs.vim-visual-multi")
     require("plugins.configs.lualine")
     require("plugins.configs.markdown")
     require("plugins.configs.mason")
