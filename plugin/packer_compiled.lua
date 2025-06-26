@@ -151,7 +151,7 @@ _G.packer_plugins = {
     url = "https://github.com/ray-x/go.nvim"
   },
   ["goplements.nvim"] = {
-    config = { "\27LJ\2\n¡\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\vprefix\1\0\4\20display_package\1\vprefix\0\ahl\15Goplements\19namespace_name\15goplements\1\0\2\14interface\21implemented by: \vstruct\17implements: \nsetup\15goplements\frequire\0" },
+    config = { "\27LJ\2\n¡\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\vprefix\1\0\4\19namespace_name\15goplements\20display_package\1\vprefix\0\ahl\15Goplements\1\0\2\vstruct\17implements: \14interface\21implemented by: \nsetup\15goplements\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -174,6 +174,7 @@ _G.packer_plugins = {
     url = "https://github.com/anuvyklack/keymap-amend.nvim"
   },
   ["lsp-zero.nvim"] = {
+    config = { "\27LJ\2\nŒ\1\0\0\5\0\t\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\0016\0\0\0'\2\b\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\20mason-lspconfig\aui\1\0\1\aui\0\nicons\1\0\1\nicons\0\1\0\3\24package_uninstalled\bÔÑå\22package_installed\bÔÅò\20package_pending\bÔÇ©\nsetup\nmason\frequire\0" },
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
@@ -197,6 +198,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["mcphub.nvim"] = {
+    config = { "\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vmcphub\frequire\0" },
+    loaded = true,
+    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/mcphub.nvim",
+    url = "https://github.com/ravitemer/mcphub.nvim"
   },
   ["move.vim"] = {
     loaded = true,
@@ -312,12 +319,6 @@ _G.packer_plugins = {
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["time-machine.nvim"] = {
-    config = { "\27LJ\2\nJ\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup!plugins.configs.time-machine\frequire\0" },
-    loaded = true,
-    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/time-machine.nvim",
-    url = "https://github.com/y3owk1n/time-machine.nvim"
-  },
   ["todo-comments.nvim"] = {
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
@@ -366,18 +367,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: time-machine.nvim
-time([[Config for time-machine.nvim]], true)
-try_loadstring("\27LJ\2\nJ\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup!plugins.configs.time-machine\frequire\0", "config", "time-machine.nvim")
-time([[Config for time-machine.nvim]], false)
--- Config for: git-conflict.nvim
-time([[Config for git-conflict.nvim]], true)
-try_loadstring("\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\rincoming\15MyIncoming\fcurrent\14MyCurrent\1\0\5\15highlights\0\16list_opener\ncopen\24disable_diagnostics\1\21default_commands\2\21default_mappings\2\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
-time([[Config for git-conflict.nvim]], false)
+-- Config for: lsp-zero.nvim
+time([[Config for lsp-zero.nvim]], true)
+try_loadstring("\27LJ\2\nŒ\1\0\0\5\0\t\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\0016\0\0\0'\2\b\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\20mason-lspconfig\aui\1\0\1\aui\0\nicons\1\0\1\nicons\0\1\0\3\24package_uninstalled\bÔÑå\22package_installed\bÔÅò\20package_pending\bÔÇ©\nsetup\nmason\frequire\0", "config", "lsp-zero.nvim")
+time([[Config for lsp-zero.nvim]], false)
 -- Config for: octo.nvim
 time([[Config for octo.nvim]], true)
 try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tocto\frequire\0", "config", "octo.nvim")
 time([[Config for octo.nvim]], false)
+-- Config for: mcphub.nvim
+time([[Config for mcphub.nvim]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vmcphub\frequire\0", "config", "mcphub.nvim")
+time([[Config for mcphub.nvim]], false)
+-- Config for: git-conflict.nvim
+time([[Config for git-conflict.nvim]], true)
+try_loadstring("\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\rincoming\15MyIncoming\fcurrent\14MyCurrent\1\0\5\15highlights\0\16list_opener\ncopen\24disable_diagnostics\1\21default_commands\2\21default_mappings\2\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
+time([[Config for git-conflict.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-treesitter ]]

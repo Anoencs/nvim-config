@@ -33,10 +33,10 @@ return require("packer").startup(function(use)
  --   			{'nvim-lua/completion-nvim'},
     		--	{'mrcjkb/rustaceanvim'},
     			{'simrat39/rust-tools.nvim'},
+    			{'hrsh7th/cmp-nvim-lsp'},     -- Required
     			{'williamboman/mason.nvim'},           -- Optional
     			{'williamboman/mason-lspconfig.nvim'}, -- Optional
     			{'hrsh7th/nvim-cmp'},         -- Required
-    			{'hrsh7th/cmp-nvim-lsp'},     -- Required
     			{'hrsh7th/cmp-buffer'},       -- Optional
     			{'hrsh7th/vim-vsnip'},
     			{'hrsh7th/cmp-vsnip'},
@@ -51,7 +51,23 @@ return require("packer").startup(function(use)
     				run = "make install_jsregexp"
     			},
     			{'rafamadriz/friendly-snippets'}, -- Optional
-    		}
+    		},
+			config = function()
+				require("mason").setup({
+   					 ui = {
+   					     icons = {
+   					         -- package_installed = "✓",
+   					         -- package_pending = "➜",
+   					         -- package_uninstalled = "✗",
+   					     	package_installed = "",
+   					         package_pending = "",
+   					         package_uninstalled = "",
+   					     },
+   					 }
+				})
+				require("mason-lspconfig").setup({})
+
+			end
     	}
     	use {
     	  'hrsh7th/vim-vsnip',
@@ -205,14 +221,24 @@ return require("packer").startup(function(use)
 		    end
 		}
 		use {
-		    'y3owk1n/time-machine.nvim',
-		    requires = {
-		        'nvim-lua/plenary.nvim',
-		    },
-		    config = function()
-		        require("plugins.configs.time-machines").setup()
-		    end
+   			 "ravitemer/mcphub.nvim",
+   			 dependencies = {
+   			     "nvim-lua/plenary.nvim",
+   			 },
+   			 build = "pnpm install -g mcp-hub@latest",  
+   			 config = function()
+   			     require("mcphub").setup()
+   			 end
 		}
+		-- use {
+		--     'y3owk1n/time-machine.nvim',
+		--     requires = {
+		--         'nvim-lua/plenary.nvim',
+		--     },
+		--     config = function()
+		--         require("plugins.configs.time-machines").setup()
+		--     end
+		-- }
 		    
     -- After declaring plugins, configure them
 	-- lsp
@@ -229,7 +255,7 @@ return require("packer").startup(function(use)
     require("plugins.configs.gitsigns")
     require("plugins.configs.lualine")
     require("plugins.configs.markdown")
-    require("plugins.configs.mason")
+    --require("plugins.configs.mason")
     require("plugins.configs.nvim-tree")
     require("plugins.configs.rust")
     require("plugins.configs.surround")
