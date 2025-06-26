@@ -92,3 +92,31 @@ vim.keymap.set('n', '<leader>ce', function()
 end, {noremap = true, silent = true})
 vim.keymap.set('n', '<leader>ne',vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>pe',vim.diagnostic.goto_prev)
+
+vim.keymap.set('n', 'gl', function()
+    local word = vim.fn.expand('<cWORD>')
+    
+    -- Pattern to match URLs
+    local url_pattern = 'https?://[%w-_%.%?%.:/%+=&%%]+'
+    local url = string.match(word, url_pattern)
+    
+    if url then
+        local cmd
+        if vim.fn.has('mac') == 1 then
+            cmd = 'open'
+        elseif vim.fn.has('unix') == 1 then
+            cmd = 'xdg-open'
+        elseif vim.fn.has('win32') == 1 then
+            cmd = 'start'
+        else
+            print("Unsupported OS")
+            return
+        end
+        
+        vim.fn.system({cmd, url})
+        print("Opening: " .. url)
+    else
+        print("No URL found under cursor")
+    end
+end, { desc = "Open URL under cursor" })
+

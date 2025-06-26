@@ -35,7 +35,7 @@ return require("packer").startup(function(use)
     			{'simrat39/rust-tools.nvim'},
     			{'hrsh7th/cmp-nvim-lsp'},     -- Required
     			{'williamboman/mason.nvim'},           -- Optional
-    			{'williamboman/mason-lspconfig.nvim'}, -- Optional
+    	--		{'williamboman/mason-lspconfig.nvim'}, -- Optional
     			{'hrsh7th/nvim-cmp'},         -- Required
     			{'hrsh7th/cmp-buffer'},       -- Optional
     			{'hrsh7th/vim-vsnip'},
@@ -51,24 +51,8 @@ return require("packer").startup(function(use)
     				run = "make install_jsregexp"
     			},
     			{'rafamadriz/friendly-snippets'}, -- Optional
-    		},
-			config = function()
-				require("mason").setup({
-   					 ui = {
-   					     icons = {
-   					         -- package_installed = "✓",
-   					         -- package_pending = "➜",
-   					         -- package_uninstalled = "✗",
-   					     	package_installed = "",
-   					         package_pending = "",
-   					         package_uninstalled = "",
-   					     },
-   					 }
-				})
-				require("mason-lspconfig").setup({})
-
-			end
-    	}
+    		} 
+		}
     	use {
     	  'hrsh7th/vim-vsnip',
     	  requires = {
@@ -225,9 +209,11 @@ return require("packer").startup(function(use)
    			 dependencies = {
    			     "nvim-lua/plenary.nvim",
    			 },
-   			 build = "pnpm install -g mcp-hub@latest",  
    			 config = function()
-   			     require("mcphub").setup()
+   			     require("mcphub").setup({
+         		   	cmd = "/home/eudaimonia/.nvm/versions/node/v20.18.1/bin/node",
+            		cmdArgs = {"/home/eudaimonia/mcp-hub/dist/cli.js"},
+        		})
    			 end
 		}
 		-- use {
@@ -255,7 +241,7 @@ return require("packer").startup(function(use)
     require("plugins.configs.gitsigns")
     require("plugins.configs.lualine")
     require("plugins.configs.markdown")
-    --require("plugins.configs.mason")
+    require("plugins.configs.mason")
     require("plugins.configs.nvim-tree")
     require("plugins.configs.rust")
     require("plugins.configs.surround")
