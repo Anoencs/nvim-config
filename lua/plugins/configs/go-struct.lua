@@ -2,24 +2,24 @@ require"structrue-go".setup({
 	show_others_method = true, -- bool show methods of struct whose not in current file
 	show_filename = true, -- bool
 	number = "no", -- show number: no | nu | rnu
-	fold_open_icon = " ",
-	fold_close_icon = " ",
+	fold_open_icon = "󰁊 ",
+	fold_close_icon = " ",
 	cursor_symbol_hl = "guibg=Gray guifg=White", -- symbol hl under cursor,
 	indent = "┠",  -- Hierarchical indent icon, nil or empty will be a tab
 	position = "botright", -- window position,default botright,also can set float
 	symbol = { -- symbol style
 		filename = {
 		    hl = "guifg=#0096C7", -- highlight symbol
-		    icon = " " -- symbol icon
+		    icon = " " -- symbol icon
 
 		},
 		package = {
 		    hl = "guifg=#0096C7",
-		    icon = " "
+		    icon = " "
 		},
 		import = {
 		    hl = "guifg=#0096C7",
-		    icon = " ◈ "
+		    icon = "  "
 		},
 		const = {
 		    hl = "guifg=#E44755",
@@ -31,7 +31,7 @@ require"structrue-go".setup({
 		},
 		func = {
 		    hl = "guifg=#CEB996",
-		    icon = "  ",
+		    icon = "󰊕 ",
 		},
 		interface = {
 		    hl = "guifg=#00B4D8",
@@ -55,7 +55,7 @@ require"structrue-go".setup({
 		},
 		method_others = {
 		    hl = "guifg=#CEB996",
-		    icon = "  "
+		    icon = "  "
 		},
 	},
 	keymap = {
@@ -63,7 +63,7 @@ require"structrue-go".setup({
 		show_others_method_toggle = "H", -- show or hidden the methods of struct whose not in current file
 		symbol_jump = "<CR>", -- jump to then symbol file under cursor
 		center_symbol = "\\f", -- Center the highlighted symbol
-		fold_toggle = "\\z",
+		fold_toggle = "<leader>z",
 		refresh = "R", -- refresh symbols
 		preview_open = "P", -- preview  symbol context open
 		preview_close = "\\p" -- preview  symbol context close

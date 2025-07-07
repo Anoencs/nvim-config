@@ -178,18 +178,18 @@ return require("packer").startup(function(use)
     			"nvim-lua/plenary.nvim",
 			}
 		}
-		use {
-		  'pwntester/octo.nvim',
-		  requires = {
-		    'nvim-lua/plenary.nvim',
-		    'nvim-telescope/telescope.nvim',
-		    -- OR 'ibhagwan/fzf-lua',
-		    'nvim-tree/nvim-web-devicons',
-		  },
-		  config = function ()
-		    require"octo".setup()
-		  end
-		}
+		-- use {
+		--   'pwntester/octo.nvim',
+		--   requires = {
+		--     'nvim-lua/plenary.nvim',
+		--     'nvim-telescope/telescope.nvim',
+		--     -- OR 'ibhagwan/fzf-lua',
+		--     'nvim-tree/nvim-web-devicons',
+		--   },
+		--   config = function ()
+		--     require"octo".setup()
+		--   end
+		-- }
 		use 'RRethy/vim-illuminate'
 		
 
@@ -204,18 +204,49 @@ return require("packer").startup(function(use)
 		        require("plugins.configs.fold").setup()
 		    end
 		}
+		-- use {
+		--    			 "ravitemer/mcphub.nvim",
+		--    			 dependencies = {
+		--    			     "nvim-lua/plenary.nvim",
+		--    			 },
+		-- 	 build = "load_nvm && npm install -g mcp-hub@latest",
+		--    			 config = function()
+		--    			     require("mcphub").setup({
+		--         		})
+		--    			 end
+		-- }
+		use "github/copilot.vim"
 		use {
-   			 "ravitemer/mcphub.nvim",
+   			 "deathbeam/CopilotChat.nvim",
    			 dependencies = {
-   			     "nvim-lua/plenary.nvim",
+   			     { "zbirenbaum/copilot.lua" },
+   			     { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
    			 },
-   			 config = function()
-   			     require("mcphub").setup({
-         		   	cmd = "/home/eudaimonia/.nvm/versions/node/v20.18.1/bin/node",
-            		cmdArgs = {"/home/eudaimonia/mcp-hub/dist/cli.js"},
-        		})
-   			 end
+   			 branch = "tools",
+   			 build = "make tiktoken", 
+		 }
+		use {
+  			"windwp/nvim-ts-autotag",
+  			config = function()
+    			require("nvim-ts-autotag").setup()
+  			end
 		}
+
+		-- use {
+		--   			'yetone/avante.nvim',
+		--     		branch = 'main',
+		--     		run = 'make',
+		-- 	requires = {
+		--  		   		{'MunifTanjim/nui.nvim'},
+		-- 		{'nvim-lua/plenary.nvim'},
+		-- 		{'MeanderingProgrammer/render-markdown.nvim'}
+		--
+		--     		},
+		--
+		--     		config = function()
+		--     		  require('avante').setup()
+		--     		end
+		--   		}
 		-- use {
 		--     'y3owk1n/time-machine.nvim',
 		--     requires = {
@@ -232,9 +263,10 @@ return require("packer").startup(function(use)
 	-- plugin
     require("plugins.configs.cmp-setup")
     require("plugins.configs.comment")
+    require("plugins.configs.mcp-copilot")
     require("plugins.configs.completion")
     require("plugins.configs.obsidians")
-    require("plugins.configs.octo")
+ --   require("plugins.configs.octo")
     require("plugins.configs.illuminate")
     require("plugins.configs.dap")
     require("plugins.configs.git-conflicts")

@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["CopilotChat.nvim"] = {
+    loaded = true,
+    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/CopilotChat.nvim",
+    url = "https://github.com/deathbeam/CopilotChat.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -109,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["copilot.vim"] = {
+    loaded = true,
+    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
+  },
   ["emmet-vim"] = {
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/emmet-vim",
@@ -135,7 +145,7 @@ _G.packer_plugins = {
     url = "https://github.com/ibhagwan/fzf-lua"
   },
   ["git-conflict.nvim"] = {
-    config = { "\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\fcurrent\14MyCurrent\rincoming\15MyIncoming\1\0\5\24disable_diagnostics\1\21default_commands\2\21default_mappings\2\15highlights\0\16list_opener\ncopen\nsetup\17git-conflict\frequire\0" },
+    config = { "\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\fcurrent\14MyCurrent\rincoming\15MyIncoming\1\0\5\21default_mappings\2\15highlights\0\16list_opener\ncopen\24disable_diagnostics\1\21default_commands\2\nsetup\17git-conflict\frequire\0" },
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/git-conflict.nvim",
     url = "https://github.com/akinsho/git-conflict.nvim"
@@ -151,7 +161,7 @@ _G.packer_plugins = {
     url = "https://github.com/ray-x/go.nvim"
   },
   ["goplements.nvim"] = {
-    config = { "\27LJ\2\n¡\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\vprefix\1\0\4\19namespace_name\15goplements\ahl\15Goplements\vprefix\0\20display_package\1\1\0\2\vstruct\17implements: \14interface\21implemented by: \nsetup\15goplements\frequire\0" },
+    config = { "\27LJ\2\n¡\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\vprefix\1\0\4\19namespace_name\15goplements\vprefix\0\20display_package\1\ahl\15Goplements\1\0\2\vstruct\17implements: \14interface\21implemented by: \nsetup\15goplements\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -192,12 +202,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["mcphub.nvim"] = {
-    config = { "\27LJ\2\n∑\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\fcmdArgs\1\2\0\0)/home/eudaimonia/mcp-hub/dist/cli.js\1\0\2\bcmd:/home/eudaimonia/.nvm/versions/node/v20.18.1/bin/node\fcmdArgs\0\nsetup\vmcphub\frequire\0" },
-    loaded = true,
-    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/mcphub.nvim",
-    url = "https://github.com/ravitemer/mcphub.nvim"
   },
   ["move.vim"] = {
     loaded = true,
@@ -248,6 +252,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-ts-autotag"] = {
+    config = { "\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\0" },
+    loaded = true,
+    path = "/home/eudaimonia/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -361,18 +371,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: git-conflict.nvim
-time([[Config for git-conflict.nvim]], true)
-try_loadstring("\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\fcurrent\14MyCurrent\rincoming\15MyIncoming\1\0\5\24disable_diagnostics\1\21default_commands\2\21default_mappings\2\15highlights\0\16list_opener\ncopen\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
-time([[Config for git-conflict.nvim]], false)
+-- Config for: nvim-ts-autotag
+time([[Config for nvim-ts-autotag]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
+time([[Config for nvim-ts-autotag]], false)
 -- Config for: octo.nvim
 time([[Config for octo.nvim]], true)
 try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tocto\frequire\0", "config", "octo.nvim")
 time([[Config for octo.nvim]], false)
--- Config for: mcphub.nvim
-time([[Config for mcphub.nvim]], true)
-try_loadstring("\27LJ\2\n∑\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\fcmdArgs\1\2\0\0)/home/eudaimonia/mcp-hub/dist/cli.js\1\0\2\bcmd:/home/eudaimonia/.nvm/versions/node/v20.18.1/bin/node\fcmdArgs\0\nsetup\vmcphub\frequire\0", "config", "mcphub.nvim")
-time([[Config for mcphub.nvim]], false)
+-- Config for: git-conflict.nvim
+time([[Config for git-conflict.nvim]], true)
+try_loadstring("\27LJ\2\n‘\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\15highlights\1\0\2\fcurrent\14MyCurrent\rincoming\15MyIncoming\1\0\5\21default_mappings\2\15highlights\0\16list_opener\ncopen\24disable_diagnostics\1\21default_commands\2\nsetup\17git-conflict\frequire\0", "config", "git-conflict.nvim")
+time([[Config for git-conflict.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-treesitter ]]
