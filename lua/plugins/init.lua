@@ -28,14 +28,10 @@ return require("packer").startup(function(use)
     		'VonHeikemen/lsp-zero.nvim',
       		branch = 'v3.x',
       		requires = {
-    		--	{'neovim/nvim-lspconfig', commit = '5e54173da4e0ffd8e9559c0a1fddfb3b7df97bec'},             -- Required
     			{'neovim/nvim-lspconfig'},             -- Required
- --   			{'nvim-lua/completion-nvim'},
-    		--	{'mrcjkb/rustaceanvim'},
     			{'simrat39/rust-tools.nvim'},
     			{'hrsh7th/cmp-nvim-lsp'},     -- Required
     			{'williamboman/mason.nvim'},           -- Optional
-    	--		{'williamboman/mason-lspconfig.nvim'}, -- Optional
     			{'hrsh7th/nvim-cmp'},         -- Required
     			{'hrsh7th/cmp-buffer'},       -- Optional
     			{'hrsh7th/vim-vsnip'},
@@ -63,22 +59,6 @@ return require("packer").startup(function(use)
     	use "terrortylor/nvim-comment"
     	use "CreaturePhil/vim-handmade-hero"
     	use "rafamadriz/friendly-snippets"
-    	-- use({
-    	--       "hrsh7th/nvim-cmp",
-    	--       requires = {
-    	--         { "hrsh7th/cmp-nvim-lsp" },
-    	--         { "hrsh7th/cmp-nvim-lua" },
-    	--         { "hrsh7th/cmp-buffer" },
-    	--         { "hrsh7th/cmp-path" },
-    	--         { "hrsh7th/cmp-cmdline" },
-    	--         { "hrsh7th/vim-vsnip" },
-    	--         { "hrsh7th/cmp-vsnip" },
-    	-- 	{'Thomashighbaugh/nvim-forge'},
-    	--         { "hrsh7th/vim-vsnip-integ" },
-    	--         { "f3fora/cmp-spell", { "hrsh7th/cmp-calc" }, { "hrsh7th/cmp-emoji" } },
-    	--       },
-    	--     })
-    
         use {
             'akinsho/git-conflict.nvim',
             tag = "*",
@@ -124,7 +104,7 @@ return require("packer").startup(function(use)
     	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
     	use {'ray-x/go.nvim', 
     		requires = {
-    			'ray-x/guihua.lua' -- recommended if need floating window support
+    			'ray-x/guihua.lua' 
     	}}
     	use {
     		'lewis6991/gitsigns.nvim'
@@ -157,7 +137,6 @@ return require("packer").startup(function(use)
 			'crusj/structrue-go.nvim',
 			branch = "main"
 		}
-	--	use 'ggandor/leap.nvim'
 		use 'folke/flash.nvim'
 		use 'karb94/neoscroll.nvim'
 		use {
@@ -167,10 +146,9 @@ return require("packer").startup(function(use)
 		        {"nvim-treesitter/nvim-treesitter"}
 		    }
 		}
-	--	use 'huggingface/llm.nvim'
-	--	use 'gsuuon/model.nvim'
 		use 'nomnivore/ollama.nvim'
- 		use 'mg979/vim-visual-multi'
+		use 'mg979/vim-visual-multi'
+  		
 		use {
 			 "epwalsh/obsidian.nvim",
   			tag = "*",  
@@ -178,18 +156,7 @@ return require("packer").startup(function(use)
     			"nvim-lua/plenary.nvim",
 			}
 		}
-		-- use {
-		--   'pwntester/octo.nvim',
-		--   requires = {
-		--     'nvim-lua/plenary.nvim',
-		--     'nvim-telescope/telescope.nvim',
-		--     -- OR 'ibhagwan/fzf-lua',
-		--     'nvim-tree/nvim-web-devicons',
-		--   },
-		--   config = function ()
-		--     require"octo".setup()
-		--   end
-		-- }
+
 		use 'RRethy/vim-illuminate'
 		
 
@@ -204,17 +171,6 @@ return require("packer").startup(function(use)
 		        require("plugins.configs.fold").setup()
 		    end
 		}
-		-- use {
-		--    			 "ravitemer/mcphub.nvim",
-		--    			 dependencies = {
-		--    			     "nvim-lua/plenary.nvim",
-		--    			 },
-		-- 	 build = "load_nvm && npm install -g mcp-hub@latest",
-		--    			 config = function()
-		--    			     require("mcphub").setup({
-		--         		})
-		--    			 end
-		-- }
 		use "github/copilot.vim"
 		use {
    			 "deathbeam/CopilotChat.nvim",
@@ -231,31 +187,6 @@ return require("packer").startup(function(use)
     			require("nvim-ts-autotag").setup()
   			end
 		}
-
-		-- use {
-		--   			'yetone/avante.nvim',
-		--     		branch = 'main',
-		--     		run = 'make',
-		-- 	requires = {
-		--  		   		{'MunifTanjim/nui.nvim'},
-		-- 		{'nvim-lua/plenary.nvim'},
-		-- 		{'MeanderingProgrammer/render-markdown.nvim'}
-		--
-		--     		},
-		--
-		--     		config = function()
-		--     		  require('avante').setup()
-		--     		end
-		--   		}
-		-- use {
-		--     'y3owk1n/time-machine.nvim',
-		--     requires = {
-		--         'nvim-lua/plenary.nvim',
-		--     },
-		--     config = function()
-		--         require("plugins.configs.time-machines").setup()
-		--     end
-		-- }
 		    
     -- After declaring plugins, configure them
 	-- lsp

@@ -120,3 +120,11 @@ vim.keymap.set('n', 'gl', function()
     end
 end, { desc = "Open URL under cursor" })
 
+-- virtual multi
+vim.keymap.set('n', '<M-j>', function()
+  vim.cmd('call vm#commands#add_cursor_down(0, v:count1)')
+end, { desc = 'VM: Add cursor down' })
+
+vim.keymap.set('n', '<M-k>', function()
+  vim.cmd('call vm#commands#add_cursor_up(0, v:count1)')
+end, { desc = 'VM: Add cursor up' })
