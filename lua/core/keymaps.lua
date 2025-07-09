@@ -31,6 +31,7 @@ keymap('i', '<M-m>', 'copilot#Accept("\\<CR>")', {
    expr = true,
    replace_keycodes = false
 })
+vim.g.copilot_no_tab_map = true
 
 keymap('n', '<leader>p', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 keymap('n', '<M-p>', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })

@@ -84,14 +84,6 @@ return require("packer").startup(function(use)
     		run = function() vim.fn["mkdp#util#install"]() end,
     	})
     
-    	 -- use  
-    	 --   {
-    	 --       "zbirenbaum/copilot-cmp",
-    	 --       config = function()
-    	 --           require("copilot_cmp").setup()
-    	 --       end,
-    	 --   }
-    	 --   use "CopilotC-Nvim/CopilotChat.nvim"
     	
     	 use {
     	   'nvim-tree/nvim-tree.lua',
@@ -187,8 +179,24 @@ return require("packer").startup(function(use)
     			require("nvim-ts-autotag").setup()
   			end
 		}
+
+
+		-- use {
+		-- 	"echaya/neowiki.nvim",
+		-- 	config = function()
+		-- 	require('neowiki').setup({
+		--  		     wiki_dirs = {
+		--    			     { name = "Work", path = "~/wiki/work" },
+		--    			     { name = "Personal", path = "~/wiki/personal" },
+		--    			   },
+		--    			 })
+		--    			
+		--    			 vim.keymap.set('n', '<leader>ww', '<cmd>lua require("neowiki").open_wiki()<cr>', { desc = "Open Wiki" })
+		--    			 vim.keymap.set('n', '<leader>wW', '<cmd>lua require("neowiki").open_wiki_floating()<cr>', { desc = "Open Wiki in Floating Window" })
+		--    			 vim.keymap.set('n', '<leader>wT', '<cmd>lua require("neowiki").open_wiki_new_tab()<cr>', { desc = "Open Wiki in Tab" })
+		-- 	end
+		-- }
 		    
-    -- After declaring plugins, configure them
 	-- lsp
     require("plugins.configs.lsp")
 	-- plugin
