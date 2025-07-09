@@ -129,3 +129,24 @@ end, { desc = 'VM: Add cursor down' })
 vim.keymap.set('n', '<M-k>', function()
   vim.cmd('call vm#commands#add_cursor_up(0, v:count1)')
 end, { desc = 'VM: Add cursor up' })
+
+-- snippet
+-- Add LuaSnip keymaps for snippet navigation
+vim.keymap.set({"i", "s"}, "<C-k>", function()
+    if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+    end
+end, {silent = true, desc = "Expand or jump to next snippet placeholder"})
+
+vim.keymap.set({"i", "s"}, "<C-j>", function()
+    if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+    end
+end, {silent = true, desc = "Jump to previous snippet placeholder"})
+
+-- Choose current choice in choice node
+vim.keymap.set("i", "<C-l>", function()
+    if luasnip.choice_active() then
+        luasnip.change_choice(1)
+    end
+end, {silent = true, desc = "Change choice in choice node"})

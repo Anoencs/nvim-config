@@ -1,0 +1,30 @@
+{
+    "Result match": {
+        "prefix": "match_result",
+        "body": [
+            "match ${1:result} {",
+            "\tOk(${2:val}) => $3,",
+            "\tErr(${4:err}) => $0,",
+            "}"
+        ],
+        "description": "Match Result"
+    },
+    "Derive Debug": {
+        "prefix": "derive",
+        "body": [
+            "#[derive(Debug$1)]"
+        ],
+        "description": "Derive Debug trait"
+    },
+    "New function": {
+        "prefix": "new",
+        "body": [
+            "pub fn new($1) -> Self {",
+            "\tSelf {",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "Constructor function"
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "Error check": {
+        "prefix": "iferr",
+        "body": [
+            "if err != nil {",
+            "\treturn $0",
+            "}"
+        ],
+        "description": "If error check"
+    },
+    "HTTP handler": {
+        "prefix": "handler",
+        "body": [
+            "func ${1:handlerName}(w http.ResponseWriter, r *http.Request) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "HTTP handler function"
+    },
+    "Table test": {
+        "prefix": "ttest",
+        "body": [
+            "func Test${1:FunctionName}(t *testing.T) {",
+            "\ttests := []struct {",
+            "\t\tname string",
+            "\t\t$2",
+            "\t\twant $3",
+            "\t}{",
+            "\t\t{",
+            "\t\t\tname: \"$4\",",
+            "\t\t\t$5",
+            "\t\t\twant: $6,",
+            "\t\t},",
+            "\t}",
+            "\tfor _, tt := range tests {",
+            "\t\tt.Run(tt.name, func(t *testing.T) {",
+            "\t\t\t$0",
+            "\t\t})",
+            "\t}",
+            "}"
+        ],
+        "description": "Table-driven test"
+    }
+}
