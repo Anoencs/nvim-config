@@ -141,8 +141,12 @@
 
 
 -- Enhanced DAP Configuration
-local dap = require('dap')
-local dapui = require('dapui')
+local ok_dap, dap = pcall(require, "dap")
+local ok_dapui, dapui = pcall(require, "dapui")
+if not (ok_dap and ok_dapui) then
+  vim.notify("DAP plugins not ready (need nvim-dap + nvim-dap-ui + nvim-nio)", vim.log.levels.WARN)
+  return
+end
 
 -- Enhanced DAP UI setup
 dapui.setup({

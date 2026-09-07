@@ -1,11 +1,16 @@
-local lspconfig = require('lspconfig')
+local shared = require("plugins.configs.lsp.shared")
 
--- Additional TypeScript server configuration
-lspconfig.ts_ls.setup({
+shared.setup_server("ts_ls", {
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+  },
   settings = {
     typescript = {
       inlayHints = {
-        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHints = "all",
         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
         includeInlayFunctionParameterTypeHints = true,
         includeInlayVariableTypeHints = true,
@@ -14,20 +19,15 @@ lspconfig.ts_ls.setup({
         includeInlayFunctionLikeReturnTypeHints = true,
         includeInlayEnumMemberValueHints = true,
       },
-      -- Additional TypeScript settings
       preferences = {
         quoteStyle = "single",
-        includeCompletionsForModuleExports = true,
-        includeCompletionsForImportStatements = true,
-      },
-      suggest = {
         includeCompletionsForModuleExports = true,
         includeCompletionsForImportStatements = true,
       },
     },
     javascript = {
       inlayHints = {
-        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHints = "all",
         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
         includeInlayFunctionParameterTypeHints = true,
         includeInlayVariableTypeHints = true,
@@ -41,53 +41,27 @@ lspconfig.ts_ls.setup({
         includeCompletionsForModuleExports = true,
         includeCompletionsForImportStatements = true,
       },
-      suggest = {
-        includeCompletionsForModuleExports = true,
-        includeCompletionsForImportStatements = true,
-      },
-    },
-  },
-  -- File types to activate this LSP
-  filetypes = { 
-    "javascript", 
-    "javascriptreact", 
-    "typescript", 
-    "typescriptreact", 
-    "vue" 
-  },
-  -- Additional initialization options
-  init_options = {
-    preferences = {
-      disableSuggestions = false,
     },
   },
 })
 
--- ESLint configuration
-lspconfig.eslint.setup({
+shared.setup_server("eslint", {
   settings = {
     workingDirectory = { mode = "auto" },
   },
-  on_attach = function(client, bufnr)
-    -- Enable ESLint fix on save
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("AnoEslintFix", { clear = true }),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client or client.name ~= "eslint" then
+      return
+    end
     vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
+      group = vim.api.nvim_create_augroup("AnoEslintFixBuf" .. args.buf, { clear = true }),
+      buffer = args.buf,
       command = "EslintFixAll",
     })
-  end,
-})
-
--- Optional: Configure inlay hints appearance
-vim.api.nvim_set_hl(0, 'LspInlayHint', {
-  fg = '#565f89',
-  bg = 'NONE',
-  italic = true,
-})
-
--- Auto-enable inlay hints for JS/TS files
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-  callback = function()
-    vim.lsp.inlay_hint.enable(true, { bufnr = 0 })
   end,
 })

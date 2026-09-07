@@ -179,10 +179,7 @@ require("nvim-tree").setup {
 		update_root = false,
 		ignore_list = {},
 	  },
-	  system_open = {
-		cmd = "",
-		args = {},
-	  },
+	  -- system_open removed in newer nvim-tree (uses vim.ui.open)
 	  git = {
 		enable = true,
 		show_on_dirs = true,

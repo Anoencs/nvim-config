@@ -22,58 +22,30 @@ return require("packer").startup(function(use)
     	  'nvim-lualine/lualine.nvim',
     	   requires = { 'kyazdani42/nvim-web-devicons'}
     	}
-    	use { "fatih/vim-go" }
     	use { "modocache/move.vim"}
+
+    	-- Native LSP stack (no lsp-zero)
+    	use { 'neovim/nvim-lspconfig' }
+    	use { 'williamboman/mason.nvim' }
+    	use { 'williamboman/mason-lspconfig.nvim' } -- v2 for Neovim 0.11+
+    	use { 'hrsh7th/cmp-nvim-lsp' } -- needs Neovim 0.11+ (client:request)
+    	use { 'hrsh7th/nvim-cmp' }
+    	use { 'hrsh7th/cmp-buffer' }
+    	use { 'hrsh7th/cmp-path' }
+    	use { 'hrsh7th/cmp-nvim-lua' }
+    	use { 'saadparwaiz1/cmp_luasnip' }
     	use {
-    		'VonHeikemen/lsp-zero.nvim',
-      		branch = 'v3.x',
-      		requires = {
-    			{'neovim/nvim-lspconfig'},             -- Required
-    			{'simrat39/rust-tools.nvim'},
-    			{'hrsh7th/cmp-nvim-lsp'},     -- Required
-    			{'williamboman/mason.nvim'},           -- Optional
-    			{'hrsh7th/nvim-cmp'},         -- Required
-    			{'hrsh7th/cmp-buffer'},       -- Optional
-    			{'hrsh7th/vim-vsnip'},
-    			{'hrsh7th/cmp-vsnip'},
-    			{'hrsh7th/cmp-path'},         -- Optional
-    			{'saadparwaiz1/cmp_luasnip'}, -- Optional
-    			{'hrsh7th/cmp-nvim-lua'},     -- Optional
-    			{
-    				"L3MON4D3/LuaSnip",
-    				-- follow latest release.
-    				tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-    				-- install jsregexp (optional!:).
-    				run = "make install_jsregexp"
-    			},
-    			{'rafamadriz/friendly-snippets'}, -- Optional
-    		} 
-		}
-    	use {
-    	  'hrsh7th/vim-vsnip',
-    	  requires = {
-    		{'hrsh7th/vim-vsnip-integ'}
-    	  }
+    		'L3MON4D3/LuaSnip',
+    		tag = 'v2.*',
+    		run = 'make install_jsregexp',
     	}
+    	use { 'rafamadriz/friendly-snippets' }
     	use {"akinsho/toggleterm.nvim", tag = '*' }
     	use "terrortylor/nvim-comment"
     	use "CreaturePhil/vim-handmade-hero"
-    	use "rafamadriz/friendly-snippets"
         use {
             'akinsho/git-conflict.nvim',
             tag = "*",
-            config = function()
-                require('git-conflict').setup {
-                    default_mappings = true,
-                    default_commands = true,
-                    disable_diagnostics = false,
-                    list_opener = 'copen',
-                    highlights = {
-                        incoming = 'MyIncoming',
-                        current = 'MyCurrent',
-                    }
-                }
-            end
         }
     	--use "lervag/vimtex"
     	use "mattn/emmet-vim"
@@ -93,6 +65,8 @@ return require("packer").startup(function(use)
     	 }
     
     	use {'christoomey/vim-tmux-navigator', lazy = false,}
+    	use { "nvim-neotest/nvim-nio" }
+    	use { "mfussenegger/nvim-dap" }
     	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
     	use {'ray-x/go.nvim', 
     		requires = {
@@ -133,6 +107,8 @@ return require("packer").startup(function(use)
 		use 'karb94/neoscroll.nvim'
 		use {
 		    "ThePrimeagen/refactoring.nvim",
+		    -- Latest needs nvim 0.12 + lewis6991/async.nvim; keep plenary-based API
+		    commit = "fa781bd",
 		    requires = {
 		        {"nvim-lua/plenary.nvim"},
 		        {"nvim-treesitter/nvim-treesitter"}
@@ -165,14 +141,13 @@ return require("packer").startup(function(use)
 		}
 		use "github/copilot.vim"
 		use {
-   			 "deathbeam/CopilotChat.nvim",
-   			 dependencies = {
-   			     { "zbirenbaum/copilot.lua" },
-   			     { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
-   			 },
-   			 branch = "tools",
-   			 build = "make tiktoken", 
-		 }
+			"deathbeam/CopilotChat.nvim",
+			branch = "tools",
+			requires = {
+				{ "nvim-lua/plenary.nvim" },
+			},
+			run = "make tiktoken",
+		}
 		use {
   			"windwp/nvim-ts-autotag",
   			config = function()
@@ -197,33 +172,37 @@ return require("packer").startup(function(use)
 		-- 	end
 		-- }
 		    
-	-- lsp
-    require("plugins.configs.lsp")
-	-- plugin
-    require("plugins.configs.cmp-setup")
-    require("plugins.configs.comment")
-    require("plugins.configs.mcp-copilot")
-    require("plugins.configs.completion")
-    require("plugins.configs.obsidians")
- --   require("plugins.configs.octo")
-    require("plugins.configs.illuminate")
-    require("plugins.configs.dap")
-    require("plugins.configs.git-conflicts")
-    require("plugins.configs.gitsigns")
-    require("plugins.configs.lualine")
-    require("plugins.configs.markdown")
-    require("plugins.configs.mason")
-    require("plugins.configs.nvim-tree")
-    require("plugins.configs.rust")
-    require("plugins.configs.surround")
-    require("plugins.configs.telescope")
-    require("plugins.configs.terminal")
-    require("plugins.configs.theme")
-    require("plugins.configs.treesitter")
-	require("plugins.configs.todo")
-	require("plugins.configs.go-struct")
-	require("plugins.configs.flash")
-	require("plugins.configs.util")
-	require("plugins.configs.refactorings")
-	--require("plugins.configs.leap")
+	-- lsp (mason before lsp)
+    local function safe_require(mod)
+      local ok, err = pcall(require, mod)
+      if not ok then
+        vim.schedule(function()
+          vim.notify("Failed to load " .. mod .. ": " .. tostring(err), vim.log.levels.WARN)
+        end)
+      end
+    end
+
+    safe_require("plugins.configs.theme")
+    safe_require("plugins.configs.mason")
+    safe_require("plugins.configs.lsp")
+    safe_require("plugins.configs.completion")
+    safe_require("plugins.configs.comment")
+    safe_require("plugins.configs.obsidians")
+    safe_require("plugins.configs.illuminate")
+    safe_require("plugins.configs.dap")
+    safe_require("plugins.configs.git-conflicts")
+    safe_require("plugins.configs.gitsigns")
+    safe_require("plugins.configs.lualine")
+    safe_require("plugins.configs.markdown")
+    safe_require("plugins.configs.nvim-tree")
+    safe_require("plugins.configs.rust")
+    safe_require("plugins.configs.surround")
+    safe_require("plugins.configs.telescope")
+    safe_require("plugins.configs.terminal")
+    safe_require("plugins.configs.treesitter")
+    safe_require("plugins.configs.todo")
+    safe_require("plugins.configs.go-struct")
+    safe_require("plugins.configs.flash")
+    safe_require("plugins.configs.util")
+    safe_require("plugins.configs.refactorings")
 end)

@@ -30,11 +30,17 @@ vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true}
 vim.api.nvim_set_option('updatetime', 300)
 
--- Fixed column for diagnostics
-vim.cmd([[
-set signcolumn=yes
-autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
-]])
+vim.opt.signcolumn = "yes"
+vim.api.nvim_create_autocmd("CursorHold", {
+  group = vim.api.nvim_create_augroup("AnoDiagnosticFloat", { clear = true }),
+  callback = function()
+    vim.diagnostic.open_float(nil, {
+      focusable = false,
+      scope = "cursor",
+      close_events = { "BufLeave", "CursorMoved", "InsertEnter" },
+    })
+  end,
+})
 
 -- Custom highlighting
 vim.cmd([[

@@ -41,13 +41,21 @@ keymap('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]e
 keymap('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 -- Tmux navigation
-keymap("n", "C-h", ":TmuxNavigateLeft<CR>")
-keymap("n", "C-l", ":TmuxNavigateRight<CR>")
-keymap("n", "C-j", ":TmuxNavigateDown<CR>")
-keymap("n", "C-k", ":TmuxNavigateUp<CR>")
+keymap("n", "<C-h>", ":TmuxNavigateLeft<CR>")
+keymap("n", "<C-l>", ":TmuxNavigateRight<CR>")
+keymap("n", "<C-j>", ":TmuxNavigateDown<CR>")
+keymap("n", "<C-k>", ":TmuxNavigateUp<CR>")
 
 
--- LSP keymaps will be added by the LSP configuration
+-- Buffer LSP maps are set in plugins.configs.lsp.shared on LspAttach
+vim.keymap.set("n", "<leader>ih", function()
+  if not vim.lsp.inlay_hint then
+    return
+  end
+  local bufnr = vim.api.nvim_get_current_buf()
+  local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
+  vim.lsp.inlay_hint.enable(not enabled, { bufnr = bufnr })
+end, { desc = "Toggle inlay hints" })
 --
 --
 -- todo comments
@@ -91,10 +99,22 @@ vim.keymap.set('n', '<leader>ce', function()
 		print("No diagnostic at cursor")
 	end
 end, {noremap = true, silent = true})
-vim.keymap.set('n', '<leader>ne',vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>pe',vim.diagnostic.goto_prev)
+vim.keymap.set('n', '<leader>ne', function()
+  if vim.diagnostic.jump then
+    vim.diagnostic.jump({ count = 1 })
+  else
+    vim.diagnostic.goto_next()
+  end
+end)
+vim.keymap.set('n', '<leader>pe', function()
+  if vim.diagnostic.jump then
+    vim.diagnostic.jump({ count = -1 })
+  else
+    vim.diagnostic.goto_prev()
+  end
+end)
 
-vim.keymap.set('n', 'gl', function()
+vim.keymap.set('n', '<leader>ou', function()
     local word = vim.fn.expand('<cWORD>')
     
     -- Pattern to match URLs
@@ -102,19 +122,7 @@ vim.keymap.set('n', 'gl', function()
     local url = string.match(word, url_pattern)
     
     if url then
-        local cmd
-        if vim.fn.has('mac') == 1 then
-            cmd = 'open'
-        elseif vim.fn.has('unix') == 1 then
-            cmd = 'xdg-open'
-        elseif vim.fn.has('win32') == 1 then
-            cmd = 'start'
-        else
-            print("Unsupported OS")
-            return
-        end
-        
-        vim.fn.system({cmd, url})
+        vim.ui.open(url)
         print("Opening: " .. url)
     else
         print("No URL found under cursor")
@@ -130,23 +138,24 @@ vim.keymap.set('n', '<M-k>', function()
   vim.cmd('call vm#commands#add_cursor_up(0, v:count1)')
 end, { desc = 'VM: Add cursor up' })
 
--- snippet
--- Add LuaSnip keymaps for snippet navigation
-vim.keymap.set({"i", "s"}, "<C-k>", function()
-    if luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-    end
-end, {silent = true, desc = "Expand or jump to next snippet placeholder"})
+-- LuaSnip navigation
+vim.keymap.set({ "i", "s" }, "<C-k>", function()
+  local ls = require("luasnip")
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { silent = true, desc = "Expand or jump to next snippet placeholder" })
 
-vim.keymap.set({"i", "s"}, "<C-j>", function()
-    if luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-    end
-end, {silent = true, desc = "Jump to previous snippet placeholder"})
+vim.keymap.set({ "i", "s" }, "<C-j>", function()
+  local ls = require("luasnip")
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true, desc = "Jump to previous snippet placeholder" })
 
--- Choose current choice in choice node
 vim.keymap.set("i", "<C-l>", function()
-    if luasnip.choice_active() then
-        luasnip.change_choice(1)
-    end
-end, {silent = true, desc = "Change choice in choice node"})
+  local ls = require("luasnip")
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end, { silent = true, desc = "Change choice in choice node" })
