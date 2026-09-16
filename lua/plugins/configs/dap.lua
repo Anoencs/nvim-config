@@ -460,3 +460,14 @@ vim.keymap.set('n', '<Leader>du', function() require('dapui').toggle() end, { de
 
 
 
+
+-- Inline variable values while debugging
+local ok_vt, dap_vt = pcall(require, "nvim-dap-virtual-text")
+if ok_vt then
+  dap_vt.setup({
+    enabled = true,
+    highlight_changed_variables = true,
+    show_stop_reason = true,
+    virt_text_pos = "eol",
+  })
+end

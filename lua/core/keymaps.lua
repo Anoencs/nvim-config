@@ -15,7 +15,6 @@ keymap("n", "<leader>h", ":wincmd h<CR>", { noremap = true })
 keymap("n", "<leader>l", ":wincmd l<CR>", { noremap = true })
 keymap("n", "<leader>j", ":wincmd j<CR>", { noremap = true })
 keymap("n", "<leader>k", ":wincmd k<CR>", { noremap = true })
-keymap("n", "<C-l>", "<C-LeftMouse>", {noremap = true})
 
 -- Telescope mappings
 keymap('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })

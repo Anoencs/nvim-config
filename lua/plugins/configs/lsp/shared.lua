@@ -3,6 +3,14 @@ local M = {}
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()
 M.is_0_11 = vim.fn.has("nvim-0.11") == 1
 
+-- Filetypes conform.nvim formats on save. The LSP BufWritePre hook below skips
+-- these so the buffer isn't formatted twice by two different engines.
+M.conform_filetypes = {
+  json = true, jsonc = true, json5 = true,
+  yaml = true, toml = true, markdown = true,
+  html = true, css = true, scss = true,
+}
+
 function M.supports_method(client, method)
   if not client then
     return false
@@ -84,6 +92,9 @@ function M.on_attach(client, bufnr)
     group = augroup,
     buffer = bufnr,
     callback = function()
+      if M.conform_filetypes[vim.bo[bufnr].filetype] then
+        return
+      end
       vim.lsp.buf.format({
         bufnr = bufnr,
         filter = function(c)

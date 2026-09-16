@@ -11,7 +11,11 @@ return require("packer").startup(function(use)
     -- Your plugin list
     use { "ellisonleao/gruvbox.nvim" }
     use { "ur4ltz/surround.nvim" }
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        branch = 'master',
+        run = ':TSUpdate',
+    }
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         requires = { {'nvim-lua/plenary.nvim'} }
@@ -68,12 +72,21 @@ return require("packer").startup(function(use)
     	use { "nvim-neotest/nvim-nio" }
     	use { "mfussenegger/nvim-dap" }
     	use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+    	use { "theHamsta/nvim-dap-virtual-text", requires = {"mfussenegger/nvim-dap"} }
     	use {'ray-x/go.nvim', 
     		requires = {
     			'ray-x/guihua.lua' 
     	}}
     	use {
     		'lewis6991/gitsigns.nvim'
+    	}
+    	-- Data files: schemas, formatting, CSV
+    	use { 'b0o/SchemaStore.nvim' }
+    	use { 'stevearc/conform.nvim' }
+    	use { 'cameron-wags/rainbow_csv.nvim' }
+    	use {
+    		'sindrets/diffview.nvim',
+    		requires = { 'nvim-lua/plenary.nvim' }
     	}
 		use {
 			'folke/todo-comments.nvim',
@@ -183,6 +196,7 @@ return require("packer").startup(function(use)
     end
 
     safe_require("plugins.configs.theme")
+    safe_require("plugins.configs.copilot")
     safe_require("plugins.configs.mason")
     safe_require("plugins.configs.lsp")
     safe_require("plugins.configs.completion")
@@ -192,6 +206,9 @@ return require("packer").startup(function(use)
     safe_require("plugins.configs.dap")
     safe_require("plugins.configs.git-conflicts")
     safe_require("plugins.configs.gitsigns")
+    safe_require("plugins.configs.diffview")
+    safe_require("plugins.configs.conform")
+    safe_require("plugins.configs.data-files")
     safe_require("plugins.configs.lualine")
     safe_require("plugins.configs.markdown")
     safe_require("plugins.configs.nvim-tree")

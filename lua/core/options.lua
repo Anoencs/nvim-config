@@ -20,7 +20,7 @@ vim.o.mouse = 'a'
 vim.o.breakindent = true
 vim.o.undofile = true
 vim.o.ignorecase = true
-vim.o.updatetime = 250
+vim.o.updatetime = 300
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 vim.o.termguicolors = true
@@ -28,7 +28,6 @@ vim.o.termguicolors = true
 -- Completion settings
 vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true}
-vim.api.nvim_set_option('updatetime', 300)
 
 vim.opt.signcolumn = "yes"
 vim.api.nvim_create_autocmd("CursorHold", {
@@ -59,3 +58,10 @@ vim.cmd([[
 ]])
 
 vim.o.background = "dark"
+
+-- Unused remote-plugin providers: disabled so :checkhealth stays signal, not noise.
+-- Re-enable a line here if you ever install a plugin that needs that host.
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_node_provider = 0
